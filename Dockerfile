@@ -15,15 +15,14 @@ ENV CONSUL_VERSION 0.6.4
 RUN apt-get update && \
     apt-get install -y wget unzip
 
-#Install and configure hashcat
+#Install and configure consul
 RUN wget https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip && \
     cd /usr/local/bin/ && \
     unzip /consul_${CONSUL_VERSION}_linux_amd64.zip
 
 
-#Add link for binary
-#RUN ln -s /hashcat/hashcat-cli64.bin /usr/bin/hashcat
+#Add configuration file for binary
+RUN mkdir -p /etc/consul.d/server/
+ADD server.json /etc/consul.d/server/
 
-#EXPOSE 9000
-
-#CMD ["/bin/bash""]
+CMD ["/usr/local/bin/consul", "agent", "-config-file","/etc/consul.d/server/server.json"]
