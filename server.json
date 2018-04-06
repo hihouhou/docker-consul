@@ -1,8 +1,0 @@
-{
-    "bootstrap": false,
-    "server": true,
-    "datacenter": "hihouhou_DC",
-    "node_name": "node1",
-    "data_dir": "/var/consul",
-    "log_level": "INFO"
-}
