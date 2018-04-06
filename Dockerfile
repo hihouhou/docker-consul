@@ -9,7 +9,7 @@ FROM debian:latest
 
 MAINTAINER hihouhou < hihouhou@hihouhou.com >
 
-ENV CONSUL_VERSION 0.6.4
+ENV CONSUL_VERSION 1.0.6
 
 # Update & install packages for installing consul
 RUN apt-get update && \
@@ -20,9 +20,6 @@ RUN wget https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL
     cd /usr/local/bin/ && \
     unzip /consul_${CONSUL_VERSION}_linux_amd64.zip
 
+EXPOSE 8500
 
-#Add configuration file for binary
-RUN mkdir -p /etc/consul.d/server/
-ADD server.json /etc/consul.d/server/
-
-CMD ["/usr/local/bin/consul", "agent", "-config-file","/etc/consul.d/server/server.json"]
+CMD /usr/local/bin/consul $options
