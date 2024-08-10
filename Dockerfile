@@ -7,7 +7,7 @@
 # Pull base image.
 FROM debian:latest
 
-MAINTAINER hihouhou < hihouhou@hihouhou.com >
+LABEL org.opencontainers.image.authors="hihouhou < hihouhou@hihouhou.com >"
 
 ENV CONSUL_VERSION v1.19.1
 
