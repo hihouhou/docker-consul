@@ -9,7 +9,7 @@ FROM debian:latest
 
 LABEL org.opencontainers.image.authors="hihouhou < hihouhou@hihouhou.com >"
 
-ENV CONSUL_VERSION=v1.19.2
+ENV CONSUL_VERSION=v1.20.0
 
 # Update & install packages for installing consul
 RUN apt-get update && \
